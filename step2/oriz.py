@@ -1,48 +1,38 @@
 import pandas as pd
 import glob
-
 import numpy as np
+import os
 
-# getting csv files from the folder MyProject
-count=0
-path = r"../step1/x-y_output/"
-# read all the files with extension .csv
-f1 = glob.glob(path + "/*.csv")
+input_path = r"../step1/x-y_output/"
+output_path = r"z_output/"
 
-path3 =r"z_output/"
-#print('File names:' , f1)
+os.makedirs(output_path, exist_ok=True)
 
-# for loop to iterate all csv files
-for file1 in f1:
+csv_files = glob.glob(os.path.join(input_path, "*.csv"))
 
-
-            df3 = pd.read_csv(file1,delimiter=';')
-            df3 = df3.drop(columns=["node_code","node_type","wlan_code","x(m)", "y(m)","z(m)"])
-
-            columns2 = ["node_code","node_type","wlan_code","x(m)","y(m)"]
-            df1 = pd.read_csv(file1,delimiter=';',usecols=columns2)
-            
-            data = np.around(np.random.uniform(3, 10, size=300),decimals=4)
-            df2 = pd.DataFrame(data, columns=['z(m)'])
-
-
-
-            df_all_rows = pd.merge(df1, df2, left_index=True,right_index=True)
-            df_all_rows2 = pd.merge(df_all_rows, df3, left_index=True,right_index=True)
-            
-            df_all_rows2.len=min(len(df1),len(df2))
+for number in range(100):
+    file_number = f"{number:03d}"
+    
+    matching_file = None
+    for file in csv_files:
+        filename = os.path.basename(file)
+        if filename.startswith(file_number) and filename.endswith(".csv"):
+            matching_file = file
+            break
+    
+    if matching_file:
+        print(f"Processing file: {matching_file}")
         
-            name = path3 + "input_nodes_copy_deployment_00" + str(count) +".csv"
-            name1 = path3 + "input_nodes_copy_deployment_0" + str(count) +".csv"
-            name2 = path3 + "input_nodes_copy_deployment_" + str(count) +".csv"
+        df = pd.read_csv(matching_file, delimiter=';')
         
-            if count<=9:
-                df_all_rows2.to_csv(name,sep=';',index=False)
-            elif count<=99:
-                df_all_rows2.to_csv(name1,sep=';',index=False)
-            else:
-                df_all_rows2.to_csv(name2,sep=';',index=False)
-
-       
-            count+=1
- 
+        print(f"Columns in {matching_file}: {df.columns.tolist()}")
+        
+        z_values = np.around(np.random.uniform(3, 10, size=len(df)), decimals=4)
+        df['z(m)'] = z_values
+        
+        output_file = os.path.join(output_path, f"input_nodes_copy_deployment_{file_number}.csv")
+        
+        df.to_csv(output_file, sep=';', index=False)
+        print(f"Saved to: {output_file}")  
+    else:
+        print(f"No file found with the number {file_number}.")
