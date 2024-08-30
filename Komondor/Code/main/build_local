@@ -1,0 +1,3 @@
+clear
+"/home/pokeymystery/Komondor/Code/COST/cxx" komondor_main.cc 
+g++ -Wall -Werror -g -o komondor_main komondor_main.cxx
