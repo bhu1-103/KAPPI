@@ -50,20 +50,3 @@ do
 	echo "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 	echo ""
 done
-echo "KUSSOOO!!!"
-sleep 1
-echo "BAKAYARO!!!"
-sleep 1
-echo "OMAE KOROSU!!!!!"
-sleep 1
-echo "...."
-sleep 1
-echo "......"
-sleep 1
-echo "......"
-sleep 1
-echo "koko de owari da..."
-sleep 1
-echo "dame da ne, dame yo, da-"
-sleep 1
-echo "Nani o yatte iru no?"
