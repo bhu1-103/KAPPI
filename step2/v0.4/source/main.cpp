@@ -7,6 +7,7 @@ float povY = 0.0f;
 float povZ = 0.0f;
 float screenWidth = 1280;
 float screenHeight = 720;
+float arg1,arg2,arg3;
 
 void initOpenGL() {
     glClearColor(0.2f, 0.0f, 0.2f, 1.0f); //deep dark purple bg
@@ -27,9 +28,10 @@ void display() {
 
     //begin drawing
 	draw_grid();
-		draw_point(+3.0f,+2.0f,+4.0f);
+	draw_axes();
+	draw_point(arg1,arg2,arg1);
 
-	glLineWidth(1.0f);
+	//glLineWidth(1.0f);
     glutSwapBuffers();
 }
 
@@ -44,6 +46,11 @@ void keyboardCallback(unsigned char key, int x, int y)
 }
 
 int main(int argc, char** argv) {
+
+	arg1 = atof(argv[1]);
+	arg2 = atof(argv[2]);
+	arg3 = atof(argv[3]);
+	
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
     glutInitWindowSize(screenWidth, screenHeight);
