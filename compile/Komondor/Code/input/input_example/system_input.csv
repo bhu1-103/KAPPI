@@ -1,0 +1,2 @@
+num_channels	basic_channel_bandwidth	pdf_backof	pdf_tx_time	packet_length	num_packets_aggregated	path_loss_model	capture_effect	noise_level	adjacent_channel_model	collisions_model	constant_PER	traffic_model	backoff_type	cw_adaptation	pifs_activated	capture_effect_model
+5	5000	0	0	12000	64	2	10	-65	0	0	0	0	0	0	0	0
