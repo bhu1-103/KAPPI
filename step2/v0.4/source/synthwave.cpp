@@ -23,27 +23,73 @@ void draw_sun()
 	glEnd();
 }
 
-void draw_point(float x, float y, float z)
+void draw_point(float w, float x, float y, float z)
 {
-	glColor3f(1.0f,0.0f,0.7f);
-	glPointSize(30.0f); //tip of the point
+	glLineWidth(10.0f); //normal to x-y plane
+	glBegin(GL_LINES);
+	glColor4f(1.0f,1.0f,1.0f,0.5f);
+	glVertex3f(x,y,z);
+	glVertex3f(x,y,0.0f);
+
+	glEnd();
+	if(w==1.0f){glColor4f(1.0f,0.0f,0.0f,1.0f);} //Station
+	else {glColor4f(1.0f,1.0f,0.0f,1.0f);} //AP
+	//glColor3f(0.0f,1.0f,1.0f);
+	glPointSize(20.0f); //tip of the point
 	glBegin(GL_POINTS);
 		glVertex3f(x,y,z);
 	glEnd();
-	
-	glLineWidth(10.0f); //normal to x-y plane
-	glBegin(GL_LINES);
-	glColor4f(1.0f,0.0f,0.0f,0.5f);
-		glVertex3f(x,y,z);
-		glVertex3f(x,y,0.0f);
+}
+
+void pyramid(float x, float y, float py_w, float py_h)
+{
+	glColor4f(1.0,0.0,1.0,0.3);
+	glBegin(GL_TRIANGLES);
+		glVertex3f(  x+0.0f,  y+0.0f,+0.0f); //triangle 1
+		glVertex3f(x+py_w/2,y+py_w/2, py_h);
+		glVertex3f(  x+py_w,  y+0.0f,+0.0f);
+		glVertex3f(  x+py_w,  y+0.0f,+0.0f); //triangle 2
+		glVertex3f(x+py_w/2,y+py_w/2, py_h);
+		glVertex3f(  x+py_w,  y+py_w,+0.0f);
+		glVertex3f(  x+py_w,  y+py_w,+0.0f); //triangle 3
+		glVertex3f(x+py_w/2,y+py_w/2, py_h);
+		glVertex3f(  x+0.0f,  y+py_w,+0.0f);
+		glVertex3f(  x+0.0f,  y+py_w,+0.0f); //triangle 4
+		glVertex3f(x+py_w/2,y+py_w/2, py_h);
+		glVertex3f(  x+0.0f,  y+0.0f,+0.0f);
 	glEnd();
+
+	glLineWidth(5.0f); //this part of the code is for making the thick borders
+	glColor4f(1.0f,0.0f,1.0f,1.0f); //the code just before this serves the purpose of making the pyramids/mountains have a sort of translucent look
+	glBegin(GL_LINES);
+		glVertex3f(x+0.0f,y+0.0f,0.0f);
+		glVertex3f(x+py_w,y+0.0f,0.0f);
+		glVertex3f(x+py_w,y+0.0f,0.0f);
+		glVertex3f(x+py_w,y+py_w,0.0f);
+		glVertex3f(x+py_w,y+py_w,0.0f);
+		glVertex3f(x+0.0f,y+py_w,0.0f);
+		glVertex3f(x+0.0f,y+py_w,0.0f);
+		glVertex3f(x+0.0f,y+0.0f,0.0f);
+	glEnd(); //so satisfying
+
+	
+	glBegin(GL_LINES); //for drawing the square base of the pyramid
+		glVertex3f(  x+0.0f,  y+0.0f,+0.0f);
+		glVertex3f(x+py_w/2,y+py_w/2, py_h);
+		glVertex3f(  x+py_w,  y+0.0f,+0.0f);
+		glVertex3f(x+py_w/2,y+py_w/2, py_h);
+		glVertex3f(  x+py_w,  y+py_w,+0.0f);
+		glVertex3f(x+py_w/2,y+py_w/2, py_h);
+		glVertex3f(  x+0.0f,  y+py_w,+0.0f);
+		glVertex3f(x+py_w/2,y+py_w/2, py_h);
+	glEnd(); //even more satisfying
 }
 
 void draw_grid()
 {
 	glColor4f(1.0f,0.0f,1.0f,1.0f);
 	glLineWidth(2.0f);
-	for(float i=-50;i<=50;i=i+0.5) //simple for loop to draw many squares
+	for(float i=-50;i<=50;i=i+1) //simple for loop to draw many squares
 	{
 		glBegin(GL_LINES);
 			glVertex3f(i,+50.0f,0.0f);
