@@ -37,8 +37,7 @@ void display() {
     for (size_t i = 0; i < points.size(); i += 4) {
         draw_point(points[i], points[i+1] / 10.0f, points[i+2] / 10.0f, points[i+3] / 10.0f);
     }
-	pyramid
-
+	
     glutSwapBuffers();
 }
 

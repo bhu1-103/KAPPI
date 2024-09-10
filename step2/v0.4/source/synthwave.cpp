@@ -32,31 +32,31 @@ void draw_point(float w, float x, float y, float z)
 	glVertex3f(x,y,0.0f);
 
 	glEnd();
-	if(w==1.0f){glColor4f(1.0f,0.0f,0.0f,1.0f);} //Station
-	else {glColor4f(1.0f,1.0f,0.0f,1.0f);} //AP
+	if(w==1.0f){glColor4f(1.0f,0.0f,0.0f,1.0f);glPointSize(10.0f);} //Station
+	else {glColor4f(1.0f,1.0f,0.0f,1.0f);glPointSize(20.0f);} //AP
 	//glColor3f(0.0f,1.0f,1.0f);
-	glPointSize(20.0f); //tip of the point
+	//glPointSize(20.0f); //tip of the point
 	glBegin(GL_POINTS);
 		glVertex3f(x,y,z);
 	glEnd();
 }
 
-void pyramid(float x, float y, float py_w, float py_h)
+void pyramid(float x, float y, float z, float py_w, float py_h)
 {
 	glColor4f(1.0,0.0,1.0,0.3);
 	glBegin(GL_TRIANGLES);
-		glVertex3f(  x+0.0f,  y+0.0f,+0.0f); //triangle 1
-		glVertex3f(x+py_w/2,y+py_w/2, py_h);
-		glVertex3f(  x+py_w,  y+0.0f,+0.0f);
-		glVertex3f(  x+py_w,  y+0.0f,+0.0f); //triangle 2
-		glVertex3f(x+py_w/2,y+py_w/2, py_h);
-		glVertex3f(  x+py_w,  y+py_w,+0.0f);
-		glVertex3f(  x+py_w,  y+py_w,+0.0f); //triangle 3
-		glVertex3f(x+py_w/2,y+py_w/2, py_h);
-		glVertex3f(  x+0.0f,  y+py_w,+0.0f);
-		glVertex3f(  x+0.0f,  y+py_w,+0.0f); //triangle 4
-		glVertex3f(x+py_w/2,y+py_w/2, py_h);
-		glVertex3f(  x+0.0f,  y+0.0f,+0.0f);
+		glVertex3f(  x+0.0f,  y+0.0f, z+0.0f); //triangle 1
+		glVertex3f(x+py_w/2,y+py_w/2, z+py_h);
+		glVertex3f(  x+py_w,  y+0.0f, z+0.0f);
+		glVertex3f(  x+py_w,  y+0.0f, z+0.0f); //triangle 2
+		glVertex3f(x+py_w/2,y+py_w/2, z+py_h);
+		glVertex3f(  x+py_w,  y+py_w, z+0.0f);
+		glVertex3f(  x+py_w,  y+py_w, z+0.0f); //triangle 3
+		glVertex3f(x+py_w/2,y+py_w/2, z+py_h);
+		glVertex3f(  x+0.0f,  y+py_w, z+0.0f);
+		glVertex3f(  x+0.0f,  y+py_w, z+0.0f); //triangle 4
+		glVertex3f(x+py_w/2,y+py_w/2, z+py_h);
+		glVertex3f(  x+0.0f,  y+0.0f, z+0.0f);
 	glEnd();
 
 	glLineWidth(5.0f); //this part of the code is for making the thick borders
