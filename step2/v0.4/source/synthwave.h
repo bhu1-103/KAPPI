@@ -11,7 +11,7 @@ extern const int sun_distance_far;
 void draw_sun();
 void draw_grid();
 void draw_axes();
-void draw_point(float w, float x, float y, float z);
+void draw_point(float w, float x, float y, float z, char wlan_codes);
 void pyramid(float x, float y, float z, float py_w, float py_h);
 
 #endif

@@ -12,6 +12,7 @@ float screenWidth = 1280;
 float screenHeight = 720;
 
 std::vector<float> points;
+std::vector<char> wlan_codes;
 
 void initOpenGL() {
     glClearColor(0.2f, 0.0f, 0.2f, 1.0f); // Deep dark purple background
@@ -26,7 +27,7 @@ void display() {
     gluPerspective(45.0f, screenWidth / screenHeight, 1.0f, 50.0f);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    gluLookAt(povX, povY, 3.0f + povZ, // Eye position
+    gluLookAt(povX, povY, 6.0f + povZ, // Eye position
               4.0f, 3.0f, 0.0f,      // Center position
               0.0f, 1.0f, 0.0f);     // Up direction
 
@@ -35,7 +36,7 @@ void display() {
     draw_axes();
 
     for (size_t i = 0; i < points.size(); i += 4) {
-        draw_point(points[i], points[i+1] / 10.0f, points[i+2] / 10.0f, points[i+3] / 10.0f);
+        draw_point(points[i], points[i+1] / 10.0f, points[i+2] / 10.0f, points[i+3] / 10.0f, wlan_codes[i/4]);
     }
 	
     glutSwapBuffers();
@@ -51,24 +52,26 @@ void keyboardCallback(unsigned char key, int x, int y) {
 }
 
 int main(int argc, char** argv) {
-    if (argc < 5 || (argc - 1) % 4 != 0) {
+    if (argc < 6 || (argc - 1) % 5 != 0) {
         std::cerr << "bruh " << argv[0] << std::endl;
         return 1;
     }
 
-    for (int i = 1; i < argc; i += 4) {
-        if (i + 3 >= argc) {
+    for (int i = 1; i < argc; i += 5) {
+        if (i + 4 >= argc) {
             std::cerr << "Error: Missing coordinates for point at index " << i << std::endl;
             return 1;
         }
-        float x = atof(argv[i]);
-        float y = atof(argv[i + 1]);
-        float z = atof(argv[i + 2]);
-        float w = atof(argv[i + 3]);
+        float x = atof(argv[i + 0]);
+		char wlan_code = argv[i + 1][0];
+        float y = atof(argv[i + 2]);
+        float z = atof(argv[i + 3]);
+        float w = atof(argv[i + 4]);
         points.push_back(x);
         points.push_back(y);
         points.push_back(z);
         points.push_back(w);
+		wlan_codes.push_back(wlan_code);
     }
 
     glutInit(&argc, argv);
