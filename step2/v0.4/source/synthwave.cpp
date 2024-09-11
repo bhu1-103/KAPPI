@@ -32,7 +32,7 @@ void draw_point(float w, float x, float y, float z)
 	glVertex3f(x,y,0.0f);
 
 	glEnd();
-	if(w==1.0f){glColor4f(1.0f,0.0f,0.0f,1.0f);glPointSize(10.0f);} //Station
+	if(w==1.0f){glColor4f(1.0f,0.0f,0.0f,1.0f);glPointSize(10.0f);} //Stations
 	else {glColor4f(1.0f,1.0f,0.0f,1.0f);glPointSize(20.0f);} //AP
 	//glColor3f(0.0f,1.0f,1.0f);
 	//glPointSize(20.0f); //tip of the point
