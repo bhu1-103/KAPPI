@@ -17,20 +17,20 @@ void draw_point(float w, float x, float y, float z, char wlan_code)
 	glPointSize(w == 0.0f ? 20.0f : 5.0f);
 	glBegin(GL_POINTS);
 	switch (wlan_code) {
-		case 'A': glColor4f(0.0f, 1.0f, 0.0f, 1.0f); break; // Lime Green
-		case 'B': glColor4f(0.0f, 1.0f, 1.0f, 1.0f); break; // Bright Cyan
-		case 'C': glColor4f(0.0f, 0.0f, 1.0f, 1.0f); break; // Bright Blue
-		case 'D': glColor4f(1.0f, 0.5f, 0.0f, 1.0f); break; // Bright Orange
-		case 'E': glColor4f(1.0f, 1.0f, 0.0f, 1.0f); break; // Neon Yellow
-		case 'F': glColor4f(1.0f, 0.0f, 0.0f, 1.0f); break; // Bright Red
-		case 'G': glColor4f(0.0f, 1.0f, 0.0f, 1.0f); break; // Neon Green
-		case 'H': glColor4f(1.0f, 0.0f, 1.0f, 1.0f); break; // Magenta
-		case 'I': glColor4f(0.0f, 0.0f, 0.0f, 1.0f); break; // Black (for contrast)
-		case 'J': glColor4f(1.0f, 0.7f, 0.0f, 1.0f); break; // Laser Lemon
-		case 'K': glColor4f(1.0f, 0.5f, 1.0f, 1.0f); break; // Hot Pink
-		case 'L': glColor4f(0.0f, 0.5f, 0.5f, 1.0f); break; // Teal
-		case 'M': glColor4f(0.8f, 0.1f, 0.2f, 1.0f); break; // Coral Red
-		case 'N': glColor4f(0.5f, 0.0f, 0.5f, 1.0f); break; // Purple (for contrast with background)
+		case 'A': glColor4f(1.0f, 0.0f, 0.0f, 1.0f); break; // Bright Red
+		case 'B': glColor4f(1.0f, 0.5f, 0.0f, 1.0f); break; // Bright Orange
+		case 'C': glColor4f(1.0f, 1.0f, 0.0f, 1.0f); break; // Neon Yellow
+		case 'D': glColor4f(0.0f, 1.0f, 0.0f, 1.0f); break; // Neon Green
+		case 'E': glColor4f(0.0f, 1.0f, 1.0f, 1.0f); break; // Bright Cyan
+		case 'F': glColor4f(0.0f, 0.0f, 1.0f, 1.0f); break; // Bright Blue
+		case 'G': glColor4f(1.0f, 0.0f, 1.0f, 1.0f); break; // Magenta
+		case 'H': glColor4f(1.0f, 0.5f, 0.5f, 1.0f); break; // Light Coral
+		case 'I': glColor4f(0.5f, 0.5f, 0.0f, 1.0f); break; // Olive Green
+		case 'J': glColor4f(0.8f, 0.8f, 0.0f, 1.0f); break; // Bright Yellow
+		case 'K': glColor4f(0.8f, 0.0f, 0.0f, 1.0f); break; // Dark Red
+		case 'L': glColor4f(0.0f, 0.8f, 0.0f, 1.0f); break; // Bright Green
+		case 'M': glColor4f(0.5f, 0.0f, 0.5f, 1.0f); break; // Purple
+		case 'N': glColor4f(1.0f, 0.8f, 0.0f, 1.0f); break; // Laser Lemon
 		default: glColor4f(1.0f, 0.0f, 0.0f, 1.0f); break; // Default Bright Red
 	}
 	glVertex3f(x,y,z);
