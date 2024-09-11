@@ -23,6 +23,7 @@
   - [x] `E` or `Q` for going up or down
   - [x] APs and STAs in differnt sizes and colors for the respective networks
   - [x] room borders
+  - [x] OBSS (Overlapping Basic Service Set) displayed
 
 ## [STEP 3](https://github.com/bhu1-103/KAPPI/blob/main/step3/combine.sh)
 ### Run Komondor.
