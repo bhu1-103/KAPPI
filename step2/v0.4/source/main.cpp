@@ -3,6 +3,7 @@
 #include <vector>
 #include <sstream>
 #include <iostream>
+#include <math.h>
 #include "synthwave.h"
 
 float povX = 0.0f;
@@ -41,7 +42,6 @@ void display() {
 
     for (size_t i = 0; i < points.size(); i += 4) {
         draw_point(points[i], points[i+1] / 10.0f, points[i+2] / 10.0f, points[i+3] / 10.0f, wlan_codes[i/4]);
-	
     }
 	
     glutSwapBuffers();

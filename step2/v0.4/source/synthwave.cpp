@@ -5,9 +5,25 @@ const int circle_resolution = 100;
 const int sun_radius = 10;
 const int sun_distance_far = 20;
 
+void draw_circle(float posx, float posy, float circle_radius)
+{
+	glColor4f(1.0f,0.0f,1.0f,0.1f);
+	glBegin(GL_TRIANGLE_FAN);
+		glVertex3f(posx,posy,0.0f);
+		for(int i = 0; i < circle_resolution; i++)
+		{
+			float angle = 2 * PI * (float)i / (float)circle_resolution;
+			float x = circle_radius * sinf(angle);
+			float y = circle_radius * cosf(angle);
+			glVertex3f(posx+x,posy+y,0.0f);
+		}
+		glVertex3f(posx+0.0f,posy+float(circle_radius),0.0f);
+	glEnd();
+}
+
 void draw_box(float room_length, float room_breadth, float room_height)
 {
-	glColor3f(0.0f,1.0f,1.0f);
+	glColor4f(0.0f,1.0f,1.0f,1.0f);
 	glBegin(GL_LINE_STRIP);
 		glVertex3f(0.0f		  ,room_breadth,	   0.0f);
 		glVertex3f(0.0f		  ,0.0f		   ,	   0.0f);
@@ -42,7 +58,7 @@ void draw_point(float w, float x, float y, float z, char wlan_code)
 	glVertex3f(x,y,0.0f);
 	glEnd();
 
-	glPointSize(w == 0.0f ? 40.0f : 5.0f);
+	glPointSize(w == 0.0f ? 40.0f : 15.0f);
 	glBegin(GL_POINTS);
 	switch (wlan_code) {
 		case 'A': glColor4f(1.0f, 0.0f, 0.0f, 1.0f); break; // Bright Red
@@ -63,7 +79,7 @@ void draw_point(float w, float x, float y, float z, char wlan_code)
 	}
 	glVertex3f(x,y,z);
 	glEnd();
-
+	if (w == 0.0f){draw_circle(x,y,1.0f);}
 }
 
 void draw_grid()
@@ -86,7 +102,7 @@ void draw_grid()
 
 void draw_axes()
 {
-	glColor3f(0.0f,0.0f,0.0f);
+	glColor4f(0.0f,0.0f,0.0f,1.0f);
 	glLineWidth(10.0f);
 	glBegin(GL_LINES);
 		glVertex2f(-50.0f,0.0f);
