@@ -2,7 +2,7 @@
 #define SYNTHWAVE_H //define
 
 #include <GL/glut.h>
-#define HALF_PI 3.14159265/2 //because I wanted only half of the sun and most likely wont be using it anywhere else
+#define PI 3.14159265 //because I wanted only half of the sun and most likely wont be using it anywhere else. changed to pi
 
 extern const int circle_resolution;
 extern const int sun_radius;
@@ -13,5 +13,6 @@ void draw_grid();
 void draw_axes();
 void draw_point(float w, float x, float y, float z, char wlan_codes);
 void pyramid(float x, float y, float z, float py_w, float py_h);
+void draw_box(float room_height, float room_breadth, float room_hright);
 
 #endif

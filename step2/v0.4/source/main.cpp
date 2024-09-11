@@ -10,6 +10,9 @@ float povY = 0.0f;
 float povZ = 0.0f;
 float screenWidth = 1280;
 float screenHeight = 720;
+float room_length = 7.0f;
+float room_breadth = 5.0f;
+float room_height = 3.0f;
 
 std::vector<float> points;
 std::vector<char> wlan_codes;
@@ -34,9 +37,11 @@ void display() {
     // Begin drawing
     draw_grid();
     draw_axes();
+	draw_box(room_length, room_breadth, room_height);
 
     for (size_t i = 0; i < points.size(); i += 4) {
         draw_point(points[i], points[i+1] / 10.0f, points[i+2] / 10.0f, points[i+3] / 10.0f, wlan_codes[i/4]);
+	
     }
 	
     glutSwapBuffers();

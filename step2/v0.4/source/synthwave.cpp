@@ -5,6 +5,34 @@ const int circle_resolution = 100;
 const int sun_radius = 10;
 const int sun_distance_far = 20;
 
+void draw_box(float room_length, float room_breadth, float room_height)
+{
+	glColor3f(0.0f,1.0f,1.0f);
+	glBegin(GL_LINE_STRIP);
+		glVertex3f(0.0f		  ,room_breadth,	   0.0f);
+		glVertex3f(0.0f		  ,0.0f		   ,	   0.0f);
+		glVertex3f(room_length,0.0f		   ,	   0.0f);
+		glVertex3f(room_length,room_breadth,	   0.0f);
+		glVertex3f(0.0f		  ,room_breadth,	   0.0f);
+		glVertex3f(0.0f		  ,room_breadth,room_height);
+		glVertex3f(room_length,room_breadth,room_height);
+		glVertex3f(room_length,		   0.0f,room_height);
+		glVertex3f(0.0f		  ,		   0.0f,room_height);
+		glVertex3f(0.0f		  ,room_breadth,room_height);
+	glEnd();
+
+	glBegin(GL_LINES);
+		glVertex3f(0.0f		  ,0.0f		   ,	   0.0f);
+		glVertex3f(0.0f		  ,		   0.0f,room_height);
+
+		glVertex3f(room_length,0.0f		   ,	   0.0f);
+		glVertex3f(room_length,		   0.0f,room_height);
+
+		glVertex3f(room_length,room_breadth,	   0.0f);
+		glVertex3f(room_length,room_breadth,room_height);
+	glEnd();
+}
+
 void draw_point(float w, float x, float y, float z, char wlan_code)
 {
 	glLineWidth(10.0f); //normal to x-y plane
@@ -14,7 +42,7 @@ void draw_point(float w, float x, float y, float z, char wlan_code)
 	glVertex3f(x,y,0.0f);
 	glEnd();
 
-	glPointSize(w == 0.0f ? 20.0f : 5.0f);
+	glPointSize(w == 0.0f ? 40.0f : 5.0f);
 	glBegin(GL_POINTS);
 	switch (wlan_code) {
 		case 'A': glColor4f(1.0f, 0.0f, 0.0f, 1.0f); break; // Bright Red
