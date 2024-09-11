@@ -64,7 +64,7 @@ int main(int argc, char** argv) {
 
     for (int i = 1; i < argc; i += 5) {
         if (i + 4 >= argc) {
-            std::cerr << "Error: Missing coordinates for point at index " << i << std::endl;
+            std::cerr << "even more bruh " << i << std::endl;
             return 1;
         }
         float x = atof(argv[i + 0]);
@@ -91,4 +91,3 @@ int main(int argc, char** argv) {
 
     return 0;
 }
-
