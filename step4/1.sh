@@ -6,7 +6,7 @@ if [ ! -d "$DIRECTORY" ]; then
     exit 1
 fi
 total_sum=0
-for file in "$DIRECTORY"/throughput_*.csv; do
+for file in "$DIRECTORY"/$1_*.csv; do
     if [ -f "$file" ]; then
         file_sum=$(awk -F, '{for(i=1;i<=NF;i++) total+=$i} END {print total}' "$file")
 		echo "$file_sum"
