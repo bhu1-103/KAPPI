@@ -1,20 +1,8 @@
-awk -F, '
-    BEGIN {
-        min = ""
+awk -F, '{
+    for (i = 1; i <= NF; i++) {
+        if (max == "" || $i < max) max = $i
     }
-    {
-        for (i = 1; i <= NF; i++) {
-            if ($i ~ /^[0-9]+(\.[0-9]+)?$/) {  # Check if the field is a number
-                if (min == "" || $i < min) min = $i
-            }
-        }
-    }
-    END {
-        if (min == "") {
-            print "No numeric values found"
-        } else {
-            print min
-        }
-    }
-' rajan.csv
-
+}
+END {
+    print max
+}' rssi-corrected.csv

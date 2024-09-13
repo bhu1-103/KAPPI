@@ -5,4 +5,4 @@ awk -F, '{
 }
 END {
     print max
-}' rajan.csv
+}' rssi-corrected.csv
