@@ -1,7 +1,7 @@
 #!/bin/bash
 
-MIN=-61.0
-MAX=-56.0
+MIN= $(./min.sh)
+MAX= $(./max.sh)
 
 INTERVAL=$(echo "scale=2; ($MAX - $MIN) / 3" | bc)
 

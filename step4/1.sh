@@ -1,6 +1,6 @@
 #!/usr/bin/zsh
 #
-DIRECTORY="thruput"
+DIRECTORY="$1"
 if [ ! -d "$DIRECTORY" ]; then
     echo "Directory $DIRECTORY not found!"
     exit 1
