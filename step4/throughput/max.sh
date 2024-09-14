@@ -6,4 +6,4 @@ awk -F, '{
 }
 END {
     print max
-}' $1
+}' throughput-corrected.csv

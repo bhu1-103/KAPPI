@@ -1,7 +1,7 @@
 #!/bin/bash
 
-MIN= $(./min.sh rssi-corrected.csv)
-MAX= $(./max.sh rssi-corrected.csv)
+MIN= $(./min.sh throughput-corrected.csv)
+MAX= $(./max.sh throughput-corrected.csv)
 
 INTERVAL=$(echo "scale=2; ($MAX - $MIN) / 3" | bc)
 
@@ -20,5 +20,5 @@ awk -F, -v min="$MIN" -v interval="$INTERVAL" -v max="$MAX" '
             print $i ", " category
         }
     }
-}' rssi-corrected.csv
+}' throughput-corrected.csv
 
