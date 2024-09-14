@@ -1,7 +1,7 @@
 #!/bin/bash
 
-MIN= $(./min.sh)
-MAX= $(./max.sh)
+MIN= $(./min.sh rssi-corrected.csv)
+MAX= $(./max.sh rssi-corrected.csv)
 
 INTERVAL=$(echo "scale=2; ($MAX - $MIN) / 3" | bc)
 
