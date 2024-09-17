@@ -10,41 +10,41 @@ void draw_circle(float posx, float posy, float circle_radius)
 	glColor4f(1.0f,0.0f,1.0f,0.1f);
 	glBegin(GL_TRIANGLE_FAN);
 		glVertex3f(posx,posy,0.0f);
-		for(int i = 0; i < circle_resolution; i++)
+		for(int i = 0; i < circle_resolution; i++) //more the resolution, more the circle curves.
 		{
 			float angle = 2 * PI * (float)i / (float)circle_resolution;
-			float x = circle_radius * sinf(angle);
-			float y = circle_radius * cosf(angle);
+			float x = circle_radius * sinf(angle); //super proud of this one
+			float y = circle_radius * cosf(angle); //pure bliss, isn't it?
 			glVertex3f(posx+x,posy+y,0.0f);
 		}
 		glVertex3f(posx+0.0f,posy+float(circle_radius),0.0f);
 	glEnd();
 }
 
-void draw_box(float room_length, float room_breadth, float room_height)
+void draw_box(float room_length, float room_breadth, float room_height) //the blue box you see which also doubles as a border
 {
 	glColor4f(0.0f,1.0f,1.0f,1.0f);
 	glBegin(GL_LINE_STRIP);
-		glVertex3f(0.0f		  ,room_breadth,	   0.0f);
-		glVertex3f(0.0f		  ,0.0f		   ,	   0.0f);
-		glVertex3f(room_length,0.0f		   ,	   0.0f);
-		glVertex3f(room_length,room_breadth,	   0.0f);
-		glVertex3f(0.0f		  ,room_breadth,	   0.0f);
+		glVertex3f(0.0f		  ,room_breadth,       0.0f);
+		glVertex3f(0.0f		  ,0.0f	       ,       0.0f); //dont ask why the 0.0f is on the left
+		glVertex3f(room_length	  ,0.0f        ,       0.0f);
+		glVertex3f(room_length	  ,room_breadth,       0.0f);
+		glVertex3f(0.0f		  ,room_breadth,       0.0f);
 		glVertex3f(0.0f		  ,room_breadth,room_height);
-		glVertex3f(room_length,room_breadth,room_height);
-		glVertex3f(room_length,		   0.0f,room_height);
-		glVertex3f(0.0f		  ,		   0.0f,room_height);
+		glVertex3f(room_length	  ,room_breadth,room_height);
+		glVertex3f(room_length	  ,	   0.0f,room_height); //and now on the right
+		glVertex3f(0.0f		  ,	   0.0f,room_height); //i do what i like.
 		glVertex3f(0.0f		  ,room_breadth,room_height);
 	glEnd();
 
 	glBegin(GL_LINES);
-		glVertex3f(0.0f		  ,0.0f		   ,	   0.0f);
-		glVertex3f(0.0f		  ,		   0.0f,room_height);
+		glVertex3f(0.0f		,0.0f     ,        0.0f);
+		glVertex3f(0.0f         ,0.0f      ,room_height);
 
-		glVertex3f(room_length,0.0f		   ,	   0.0f);
-		glVertex3f(room_length,		   0.0f,room_height);
+		glVertex3f(room_length,0.0f        ,	   0.0f);
+		glVertex3f(room_length,0.0f        ,room_height);
 
-		glVertex3f(room_length,room_breadth,	   0.0f);
+		glVertex3f(room_length,room_breadth,       0.0f);
 		glVertex3f(room_length,room_breadth,room_height);
 	glEnd();
 }
@@ -58,7 +58,7 @@ void draw_point(float w, float x, float y, float z, char wlan_code)
 	glVertex3f(x,y,0.0f);
 	glEnd();
 
-	glPointSize(w == 0.0f ? 40.0f : 15.0f);
+	glPointSize(w == 0.0f ? 40.0f : 15.0f); //0 is Access Point and 1 is Station
 	glBegin(GL_POINTS);
 	switch (wlan_code) {
 		case 'A': glColor4f(1.0f, 0.0f, 0.0f, 1.0f); break; // Bright Red
