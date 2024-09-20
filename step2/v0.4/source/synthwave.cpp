@@ -1,5 +1,6 @@
 #include "synthwave.h"
 #include <math.h>
+#include <cstring>
 
 const int circle_resolution = 100;
 const int sun_radius = 10;
@@ -16,6 +17,21 @@ void draw_circle(float posx, float posy, float circle_radius)
 			float x = circle_radius * sinf(angle); //super proud of this one
 			float y = circle_radius * cosf(angle); //pure bliss, isn't it?
 			glVertex3f(posx+x,posy+y,0.0f);
+		}
+		glVertex3f(posx+0.0f,posy+float(circle_radius),0.0f);
+	glEnd();
+}
+
+void draw_naked_circle(float posx, float posy, float posz, float circle_radius)
+{
+	glBegin(GL_LINE_STRIP);
+		glVertex3f(posx,posy,posz);
+		for(int i = 0; i < circle_resolution; i++) //more the resolution, more the circle curves.
+		{
+			float angle = 2 * PI * (float)i / (float)circle_resolution;
+			float x = circle_radius * sinf(angle); //super proud of this one
+			float y = circle_radius * cosf(angle); //pure bliss, isn't it?
+			glVertex3f(posx+x,posy+y,posz);
 		}
 		glVertex3f(posx+0.0f,posy+float(circle_radius),0.0f);
 	glEnd();
@@ -49,53 +65,75 @@ void draw_box(float room_length, float room_breadth, float room_height) //the bl
 	glEnd();
 }
 
-void draw_point(float w, float x, float y, float z, char wlan_code)
-{
-	glLineWidth(10.0f); //normal to x-y plane
-	glBegin(GL_LINES);
-	glColor4f(0.0f,0.0f,0.0f,0.3f);
-	glVertex3f(x,y,z);
-	glVertex3f(x,y,0.0f);
-	glEnd();
 
-	glPointSize(w == 0.0f ? 40.0f : 15.0f); //0 is Access Point and 1 is Station
-	glBegin(GL_POINTS);
-	switch (wlan_code) {
-		case 'A': glColor4f(1.0f, 0.0f, 0.0f, 1.0f); break; // Bright Red
-		case 'B': glColor4f(1.0f, 0.5f, 0.0f, 1.0f); break; // Bright Orange
-		case 'C': glColor4f(1.0f, 1.0f, 0.0f, 1.0f); break; // Neon Yellow
-		case 'D': glColor4f(0.0f, 1.0f, 0.0f, 1.0f); break; // Neon Green
-		case 'E': glColor4f(0.0f, 1.0f, 1.0f, 1.0f); break; // Bright Cyan
-		case 'F': glColor4f(0.0f, 0.0f, 1.0f, 1.0f); break; // Bright Blue
-		case 'G': glColor4f(1.0f, 0.0f, 1.0f, 1.0f); break; // Magenta
-		case 'H': glColor4f(1.0f, 0.5f, 0.5f, 1.0f); break; // Light Coral
-		case 'I': glColor4f(0.5f, 0.5f, 0.0f, 1.0f); break; // Olive Green
-		case 'J': glColor4f(0.8f, 0.8f, 0.0f, 1.0f); break; // Bright Yellow
-		case 'K': glColor4f(0.8f, 0.0f, 0.0f, 1.0f); break; // Dark Red
-		case 'L': glColor4f(0.0f, 0.8f, 0.0f, 1.0f); break; // Bright Green
-		case 'M': glColor4f(0.5f, 0.0f, 0.5f, 1.0f); break; // Purple
-		case 'N': glColor4f(1.0f, 0.8f, 0.0f, 1.0f); break; // Laser Lemon
-		default: glColor4f(1.0f, 0.0f, 0.0f, 1.0f); break; // Default Bright Red
-	}
-	glVertex3f(x,y,z);
-	glEnd();
-	if (w == 0.0f){draw_circle(x,y,1.0f);}
+void draw_point(float w, float x, float y, float z, const char* wlan_code) {
+    glLineWidth(10.0f); // Normal to x-y plane
+    glBegin(GL_LINES);
+    glColor4f(0.0f, 0.0f, 0.0f, 0.3f);
+    glVertex3f(x, y, z);
+    glVertex3f(x, y, 0.0f);
+    glEnd();
+
+    glPointSize(w == 0.0f ? 40.0f : 15.0f); // 0 is Access Point and 1 is Station
+    glBegin(GL_POINTS);
+
+    // Using if-else statements for string comparison
+    if (strcmp(wlan_code, "A") == 0) {
+        glColor4f(1.0f, 0.0f, 0.0f, 1.0f); // Bright Red
+    } else if (strcmp(wlan_code, "B") == 0) {
+        glColor4f(1.0f, 0.5f, 0.0f, 1.0f); // Bright Orange
+    } else if (strcmp(wlan_code, "C") == 0) {
+        glColor4f(1.0f, 1.0f, 0.0f, 1.0f); // Neon Yellow
+    } else if (strcmp(wlan_code, "D") == 0) {
+        glColor4f(0.0f, 1.0f, 0.0f, 1.0f); // Neon Green
+    } else if (strcmp(wlan_code, "E") == 0) {
+        glColor4f(0.0f, 1.0f, 1.0f, 1.0f); // Bright Cyan
+    } else if (strcmp(wlan_code, "F") == 0) {
+        glColor4f(0.0f, 0.0f, 1.0f, 1.0f); // Bright Blue
+    } else if (strcmp(wlan_code, "G") == 0) {
+        glColor4f(1.0f, 0.0f, 1.0f, 1.0f); // Magenta
+    } else if (strcmp(wlan_code, "H") == 0) {
+        glColor4f(1.0f, 0.5f, 0.5f, 1.0f); // Light Coral
+    } else if (strcmp(wlan_code, "I") == 0) {
+        glColor4f(0.5f, 0.5f, 0.0f, 1.0f); // Olive Green
+    } else if (strcmp(wlan_code, "J") == 0) {
+        glColor4f(0.8f, 0.8f, 0.0f, 1.0f); // Bright Yellow
+    } else if (strcmp(wlan_code, "K") == 0) {
+        glColor4f(0.8f, 0.0f, 0.0f, 1.0f); // Dark Red
+    } else if (strcmp(wlan_code, "L") == 0) {
+        glColor4f(0.0f, 0.8f, 0.0f, 1.0f); // Bright Green
+    } else if (strcmp(wlan_code, "M") == 0) {
+        glColor4f(0.5f, 0.0f, 0.5f, 1.0f); // Purple
+    } else if (strcmp(wlan_code, "N") == 0) {
+        glColor4f(1.0f, 0.8f, 0.0f, 1.0f); // Laser Lemon
+    } else {
+        glColor4f(1.0f, 0.0f, 0.0f, 1.0f); // Default Bright Red
+    }
+
+    glVertex3f(x, y, z);
+    glEnd();
+
+    if (w == 0.0f) {
+        draw_circle(x, y, 1.0f);
+    }
 }
+
+
 
 void draw_grid()
 {
 	glColor4f(1.0f,0.0f,1.0f,1.0f);
 	glLineWidth(2.0f);
-	for(float i=-50;i<=50;i=i+1) //simple for loop to draw many squares
+	for(float i=-500;i<=500;i=i+1) //simple for loop to draw many squares
 	{
 		glBegin(GL_LINES);
-			glVertex3f(i,+50.0f,0.0f);
-			glVertex3f(i,-50.0f,0.0f);
+			glVertex3f(i,+500.0f,0.0f);
+			glVertex3f(i,-500.0f,0.0f);
 		glEnd();
 
 		glBegin(GL_LINES);
-			glVertex3f(+50.0f,i,0.0f);
-			glVertex3f(-50.0f,i,0.0f);
+			glVertex3f(+500.0f,i,0.0f);
+			glVertex3f(-500.0f,i,0.0f);
 		glEnd();
 	}
 }

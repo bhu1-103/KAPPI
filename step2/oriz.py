@@ -17,7 +17,7 @@ for file1 in f1:
             columns2 = ["node_code","node_type","wlan_code","x(m)","y(m)"]
             df1 = pd.read_csv(file1,delimiter=';',usecols=columns2)
 
-            data = np.around(np.random.uniform(3, 10, size=300),decimals=4)
+            data = np.around(np.random.uniform(3, 100, size=3000),decimals=4)
             df2 = pd.DataFrame(data, columns=['z(m)'])
 
             df_all_rows = pd.merge(df1, df2, left_index=True,right_index=True)
@@ -31,7 +31,7 @@ for file1 in f1:
 
             if count<=9:
                 df_all_rows2.to_csv(name,sep=';',index=False)
-            elif count<=99:
+            elif count<=999:
                 df_all_rows2.to_csv(name1,sep=';',index=False)
             else:
                 df_all_rows2.to_csv(name2,sep=';',index=False)

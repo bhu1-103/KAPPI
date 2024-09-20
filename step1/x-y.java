@@ -401,15 +401,15 @@ public class AI_challenge_sce1 {
 
         input_attributes(input_path);
         
-        int num_random_deployments = 100;
+        int num_random_deployments = 1;
         
         double x = 0;
         double y = 0;
                 
         // Fix APs' location
         Point2D.Double[] array_ap_locations = new Point2D.Double[num_bss];
-        int num_rows = 3;
-        int num_cols = 4;
+        int num_rows = 10;
+        int num_cols = 10;
         int aux_row_counter = 0;
         for (int i = 0; i < num_bss; ++i) {
             Point2D.Double ap_location = new Point2D.Double();
