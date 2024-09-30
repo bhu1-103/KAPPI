@@ -39,3 +39,8 @@
 ## [STEP 4](https://github.com/bhu1-103/KAPPI/blob/main/step4/saigo-no-steppu.sh)
 ### Separate the output parameters.
  - [x] Used a shell script to separate Komondor's single file ouput into separate files and store all ouptuts in their respective folders.
+
+
+## STEP 1
+### custom rng
+
