@@ -6,7 +6,7 @@ int main()
 {
 	random_device rd;
 	mt19937 gen(rd());
-	uniform_int_distribution<> dis(0,6);
+	uniform_int_distribution<> dis(1,6);
 	int nombor_x = dis(gen);
 	int nombor_y = dis(gen);
 	cout << "here's x coordinate " << nombor_x*10 << endl;
