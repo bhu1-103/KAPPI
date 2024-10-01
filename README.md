@@ -4,7 +4,7 @@
 - [x] variation for min and max channels done
 - [x] map size (5 cases)
 - [ ] distance from AP to STA (1-5,1-10)
-- [ ] change distance from AP to AP 
+- [ ] change distance from AP to AP to custom RNG model
 
 ## [STEP 1](https://github.com/bhu1-103/KAPPI/tree/main/step1)
 ### Generate randomized input parameters
