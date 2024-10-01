@@ -13,7 +13,13 @@ void co_ordinates(double r_low, double width, double z){
 int main()
 {
 	srand(time(0));	
-	for(int i=0;i<21;i++) co_ordinates(28.43,2.0,1.0);
+	for(double z=0.0;z<18;z+=2.0)
+	{
+		for(int i=28;i<75;i++)
+		{
+			co_ordinates(i*10,2.0,z*10);
+		}
+	}
 	printf("\n");
 	return 0;
 }

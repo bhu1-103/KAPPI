@@ -1,5 +1,11 @@
 # KAPPI
 
+## to-do (dataset)
+- [x] variation for min and max channels done
+- [x] map size (5 cases)
+- [ ] distance from AP to STA (1-5,1-10)
+- [ ] change distance from AP to AP 
+
 ## [STEP 1](https://github.com/bhu1-103/KAPPI/tree/main/step1)
 ### Generate randomized input parameters
  - Used java code from ITU ML challenge for generating 
@@ -43,4 +49,5 @@
 
 ## STEP 1
 ### custom rng
+
 

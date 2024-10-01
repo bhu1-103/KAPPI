@@ -41,11 +41,11 @@ void display() {
     draw_grid();
     draw_axes();
 	glColor4f(1.0f,1.0f,1.0f,0.4f);
-	draw_naked_circle(0.0f,0.0f,0.0f,05.0f);
+	/*draw_naked_circle(0.0f,0.0f,0.0f,05.0f);
 	for(float rings=5.0f;rings<15.0f;rings+=1.0f)
 		{
 			draw_naked_circle(0.0f,0.0f,rings-5.0f,rings);
-		}
+		}*/
     //draw_box(room_length, room_breadth, room_height);
 
     for (size_t i = 0; i < points.size(); i += 4) {
