@@ -1,4 +1,4 @@
-CXX = g++
+CXX = gcc
 CXXFLAGS = -Wall -g
 SRC_DIR = source
 BUILD_DIR = build
