@@ -38,7 +38,7 @@ void display() {
               0.0f, 1.0f, 0.0f);     // Up direction
 
     // Begin drawing
-    draw_grid();
+    //draw_grid();
     draw_axes();
 	glColor4f(1.0f,1.0f,1.0f,0.4f);
 	/*draw_naked_circle(0.0f,0.0f,0.0f,05.0f);

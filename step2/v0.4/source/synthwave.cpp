@@ -74,7 +74,7 @@ void draw_point(float w, float x, float y, float z, const char* wlan_code) {
     glVertex3f(x, y, 0.0f);
     glEnd();
 
-    glPointSize(w == 0.0f ? 40.0f : 15.0f); // 0 is Access Point and 1 is Station
+    glPointSize(w == 0.0f ? 10.0f : 3.0f); // 0 is Access Point and 1 is Station
     glBegin(GL_POINTS);
 
     // Using if-else statements for string comparison
@@ -124,16 +124,16 @@ void draw_grid()
 {
 	glColor4f(1.0f,0.0f,1.0f,1.0f);
 	glLineWidth(2.0f);
-	for(float i=-500;i<=500;i=i+1) //simple for loop to draw many squares
+	for(float i=-1000;i<=1000;i=i+1) //simple for loop to draw many squares
 	{
 		glBegin(GL_LINES);
-			glVertex3f(i,+500.0f,0.0f);
-			glVertex3f(i,-500.0f,0.0f);
+			glVertex3f(i,+1000.0f,0.0f);
+			glVertex3f(i,-1000.0f,0.0f);
 		glEnd();
 
 		glBegin(GL_LINES);
-			glVertex3f(+500.0f,i,0.0f);
-			glVertex3f(-500.0f,i,0.0f);
+			glVertex3f(+1000.0f,i,0.0f);
+			glVertex3f(-1000.0f,i,0.0f);
 		glEnd();
 	}
 }
