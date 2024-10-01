@@ -34,7 +34,7 @@ void display() {
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
     gluLookAt(povX, povY, 6.0f + povZ, // Eye position
-              4.0f, 3.0f, 0.0f,      // Center position
+              0.0f, 0.0f, 0.0f,      // Center position
               0.0f, 1.0f, 0.0f);     // Up direction
 
     // Begin drawing
