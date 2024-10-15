@@ -1,4 +1,5 @@
 # KAPPI
+# This repo will be archived, refer to the [new repo](https://github.com/bhu1-103/cappy) for updates.
 
 ## to-do (dataset)
 - [x] variation for min and max channels done
