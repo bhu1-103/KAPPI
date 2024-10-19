@@ -11,7 +11,7 @@ void draw_circle(float posx, float posy, float circle_radius)
 	glColor4f(1.0f,0.0f,1.0f,0.1f);
 	glBegin(GL_TRIANGLE_FAN);
 		glVertex3f(posx,posy,0.0f);
-		for(int i = 0; i < circle_resolution; i++) //more the resolution, more the circle curves.
+		for(int i = 0; i < circle_resolution+1; i++) //more the resolution, more the circle curves.
 		{
 			float angle = 2 * PI * (float)i / (float)circle_resolution;
 			float x = circle_radius * sinf(angle); //super proud of this one
