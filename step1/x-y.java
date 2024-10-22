@@ -401,7 +401,7 @@ public class AI_challenge_sce1 {
 
         input_attributes(input_path);
         
-        int num_random_deployments = 1;
+        int num_random_deployments = 100;
         
         double x = 0;
         double y = 0;
