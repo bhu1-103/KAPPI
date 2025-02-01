@@ -10,7 +10,7 @@
 
 ## [STEP 1](https://github.com/bhu1-103/KAPPI/tree/main/step1)
 ### Generate randomized input parameters
- - Used java code from ITU ML challenge for generating 
+ - Used java code from ITU ML challenge for generating. `javac *.java; java x-y`
     - [x] x,y coordinates
     - [x] map height and width
     - [x] number of Access Points `AP` and Stations `STA`
