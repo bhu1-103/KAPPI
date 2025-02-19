@@ -1,5 +1,5 @@
 # KAPPI
-# This repository will be archived, refer to the [new repo](https://github.com/bhu1-103/cappy) for updates.
+# This repository will be archived, refer to the [new repo](https://github.com/bhu1-103/cappy) for updates./
 # legacy version
 # 4/5 output works (meaning, it sucks)
 
